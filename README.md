@@ -142,10 +142,4 @@ Contributions are welcome!
 
 ---
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE). Add a `LICENSE` file to your repository if you choose this license.
-
----
-
 <p align="center">Made with ❤️ for travellers everywhere · 2025 Tourism Guide</p>
