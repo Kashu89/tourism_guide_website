@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Guide System</title>
+    <link rel="icon" type="logoo.png" href="logoo.png">
+    <link rel="stylesheet" href="css3.css">
+    <script src="scripts.js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" defer></script>
+
+</head>
+<body>
+    <header>
+        <h1>Tourism Guide System</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#places">Places</a></li>
+                <li><a href="#booking">Booking</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#map">Map</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+           <BR>
+            <div>
+            <a href="login.html" class="place">LOGIN / REGISTER</a>
+            </div>
+        </nav>
+        
+    </header>
+
+    <section id="home">
+        <section class="video-section">
+            <video class="section-video" autoplay loop muted>
+                <source src="https://youtu.be/_ZJpuh0y7mo" type="video/mp4">
+            </video>
+            <div class="video-content">
+                <h3>Discover Beautiful Places</h3>
+                <p>Watch our travel guide and start your journey!</p>
+            </div>
+        </section>        
+       <!--- <button onclick="scrollToSection('places')">Discover More</button>--->
+        <button><a href="discovernow.html">discover now</a></button>
+    </section>
+    
+    <section id="places">
+        <h2>Popular Destinations</h2>
+        <div class="places-container">
+              <a href="beach.html" class="place">Beaches</a>
+              <a href="forest.html" class="place">FOREST</a>
+              <a href="TEMPLE.HTML" class="place">TEMPLE</a>
+              <a href="CITY.HTML" class="place">CITY TOURS</a> 
+              <a href="HOTEL.HTML" class="place">HOTELS</a> 
+              <a href="HILLSTATION.HTML" class="place">HILL STATIONS</a> 
+              <a href="SPECIAL TOURS.HTML" class="place">SPECIAL TOURS</a> 
+              <a href="HISTORICAL.HTML" class="place">HISTORICAL PLACES</a> 
+              <a href="MOUNTAIN.HTML" class="place">MOUNTAINS</a>  
+        </div>
+    </section>
+    
+    <section id="visit">
+        <h2>Visit All special offers</h2>
+        <section class="tour-section">
+            <div class="tour-container">
+                <div class="tour-card">
+                    <img src="https://th.bing.com/th/id/OIP.uX8assPVtm9ffVTUhaPCtQHaE8?rs=1&pid=ImgDetMain" alt="Tour 1">
+                    <h3>Beach Paradise</h3>
+                    <p>Price: 299 Rs.</p>
+                    <br>
+                        <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+                </div>
+                <div class="tour-card">
+                    <img src="https://th.bing.com/th/id/OIP.BGHwntfkQhjV6pfe0wwnqwHaDZ?rs=1&pid=ImgDetMain" alt="Tour 2">
+                    <h3>Mountain Adventure</h3>
+                    <p>Price: 349 Rs.</p>
+                    <br>
+                    <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+                </div>
+                <div class="tour-card">
+                    <img src="https://th.bing.com/th/id/R.17a1102d9cd8b2d6d070ae917b98066d?rik=8uRNTST2iQ1WcA&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f7%2fa%2fd%2f608460.jpg&ehk=HKrXbstK8xCrMzqGSJjWmGSd0KmDxiJ%2fjg5FPOfaZW0%3d&risl=&pid=ImgRaw&r=0" alt="Tour 3">
+                    <h3>City Exploration</h3>
+                    <p>Price: 299 Rs.</p>
+                    <br>
+                    <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+                </div>
+                <div class="tour-card">
+                    <img src="https://worldstopinsider.com/wp-content/uploads/2020/06/TAJ-MAHAL.jpg" alt="Tour 3">
+                    <h3>historical place</h3>
+                    <p>Price: 499 Rs.</p>
+                    <br>
+                    <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+                </div>
+            </div>
+
+    
+    <section id="packages">
+<!--yah pr pakages h-->
+        <div class="container">
+        <h1>International Holiday Packages</h1>
+        <div class="grid">
+            <div class="card">
+                <img src="https://www.tourmyindia.com/international/bhutan/wp-content/uploads/sites/2/2020/01/Tiger-nest-monastery-bhutan-hp.jpg" alt="Bhutan">
+                <h3>Bhutan Tours</h3>
+                <button onclick="viewDetails('Beach Getaway', 'https://via.placeholder.com/300', 'Relax on the serene beaches with luxury accommodations.', ['Luxury Resort', 'Beach Activities', 'All Meals Included'], 4.8, 1200)">View Details</button>
+            </div>
+        </div>
+<!--newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+        <div id="packageModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>AMAZING TOURS</h2>
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/38/27/b2/caption.jpg?w=1200&h=1200&s=1" alt="Package Image" style="width: 100%; height:120PX; border-radius: 15px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); display: block; margin: 20px auto; transition: transform 0.3s ease;" 
+                onmouseover="this.style.transform='scale(1.05)'" 
+                onmouseout="this.style.transform='scale(1)'"
+              />
+                <p>It is very peaceful and amazing place for make good memories</p>
+                <h3>Features:</h3>
+                <ul>Amazing Hotels<br>
+                Amazing resort<br>
+                Amazing food facility</ul>
+                <h3>Rating:</h3>
+                <p id="packageRating"></p>
+                <h3>Price:</h3>
+                <p> 4000</p>
+    
+                <h3>Payment Options:</h3>
+                <BR>
+                <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+            </div>
+        </div>
+
+            <div class="card">
+                <img src="https://www.tourmyindia.com/international/wp-content/uploads/2018/04/Thailand-1-1800x532.jpg" alt="Thailand">
+                <h3>Thailand Tours</h3>
+                <button onclick="viewDetails('Beach Getaway', 'https://via.placeholder.com/300', 'Relax on the serene beaches with luxury accommodations.', ['Luxury Resort', 'Beach Activities', 'All Meals Included'], 4.8, 1200)">View Details</button>
+            </div>
+        </div>
+<!--newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+        <div id="Modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Thailand</h2>
+                <img id="packageImage" src="" alt="Package Image">
+                <p id="packageDescription"></p>
+                <h3>Features:</h3>
+                <ul id="packageFeatures"></ul>
+                <h3>Rating:</h3>
+                <p id="packageRating"></p>
+                <h3>Price:</h3>
+                <p id="packagePrice"></p>
+    
+                <h3>Payment Options:</h3>
+                <BR>
+                    <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+            </div>
+        </div>
+            </div>
+            <div class="card">
+                <img src="https://www.tourmyindia.com/international/wp-content/uploads/2018/04/dubai01-2-1800x532.jpg" alt="Dubai">
+                <h3>Dubai Tours</h3>
+                <button onclick="viewDetails('Beach Getaway', 'https://via.placeholder.com/300', 'Relax on the serene beaches with luxury accommodations.', ['Luxury Resort', 'Beach Activities', 'All Meals Included'], 4.8, 1200)">View Details</button>
+            </div>
+        </div>
+<!--newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+        <div id="packageModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="packageTitle"></h2>
+                <img id="packageImage" src="" alt="Package Image">
+                <p id="packageDescription"></p>
+                <h3>Features:</h3>
+                <ul id="packageFeatures"></ul>
+                <h3>Rating:</h3>
+                <p id="packageRating"></p>
+                <h3>Price:</h3>
+                <p id="packagePrice"></p>
+    
+                <h3>Payment Options:</h3>
+                <BR>
+                    <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+            </div>
+        </div>
+            </div>
+            <div class="card">
+                <img src="https://www.tourmyindia.com/international/wp-content/uploads/2018/04/Malaysia-4-1800x532.jpg" alt="Malaysia">
+                <h3>Malaysia Tours</h3>
+                <button onclick="viewDetails('Bea ch Getaway', 'https://via.placeholder.com/300', 'Relax on the serene beaches with luxury accommodations.', ['Luxury Resort', 'Beach Activities', 'All Meals Included'], 4.8, 1200)">View Details</button>
+            </div>
+        </div>
+<!--newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+        <div id="packageModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="packageTitle"></h2>
+                <img id="packageImage" src="" alt="Package Image">
+                <p id="packageDescription"></p>
+                <h3>Features:</h3>
+                <ul id="packageFeatures"></ul>
+                <h3>Rating:</h3>
+                <p id="packageRating"></p>
+                <h3>Price:</h3>
+                <p id="packagePrice"></p>
+    
+                <h3>Payment Options:</h3>
+                <BR>
+                    <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+            </div>
+        </div>
+            </div>
+            <div class="card">
+                <img src="https://www.tourmyindia.com/international/wp-content/uploads/2018/04/Maldives-1800x532.jpg" alt="Maldives">
+                <h3>Maldives Tours</h3>
+                <button onclick="viewDetails('Beach Getaway', 'https://via.placeholder.com/300', 'Relax on the serene beaches with luxury accommodations.', ['Luxury Resort', 'Beach Activities', 'All Meals Included'], 4.8, 1200)">View Details</button>
+            </div>
+        </div>
+<!--newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+        <div id="packageModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="packageTitle"></h2>
+                <img id="packageImage" src="" alt="Package Image">
+                <p id="packageDescription"></p>
+                <h3>Features:</h3>
+                <ul id="packageFeatures"></ul>
+                <h3>Rating:</h3>
+                <p id="packageRating"></p>
+                <h3>Price:</h3>
+                <p id="packagePrice"></p>
+    
+                <h3>Payment Options:</h3>
+                <BR>
+                    <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+            </div>
+        </div>
+            </div>
+            <div class="card">
+                <img src="https://www.tourmyindia.com/international/wp-content/uploads/2018/04/Indonesia-1-1800x532.jpg" alt="indonesia tour">
+                <h3>indonesia tour</h3>
+                <button onclick="viewDetails('Beach Getaway', 'https://via.placeholder.com/300', 'Relax on the serene beaches with luxury accommodations.', ['Luxury Resort', 'Beach Activities', 'All Meals Included'], 4.8, 1200)">View Details</button>
+            </div>
+        </div>
+<!--newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+        <div id="packageModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="packageTitle"></h2>
+                <img id="packageImage" src="" alt="Package Image">
+                <p id="packageDescription"></p>
+                <h3>Features:</h3>
+                <ul id="packageFeatures"></ul>
+                <h3>Rating:</h3>
+                <p id="packageRating"></p>
+                <h3>Price:</h3>
+                <p id="packagePrice"></p>
+    
+                <h3>Payment Options:</h3>
+                <BR>
+                    <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+            </div>
+        </div>
+            </div>
+            <div class="card">
+                <img src="https://www.tourmyindia.com/international/wp-content/uploads/2018/04/nepal-2-1800x532.jpg" alt="nepal tour">
+                <h3>Nepal tour</h3>
+                <button onclick="viewDetails('Beach Getaway', 'https://via.placeholder.com/300', 'Relax on the serene beaches with luxury accommodations.', ['Luxury Resort', 'Beach Activities', 'All Meals Included'], 4.8, 1200)">View Details</button>
+            </div>
+        </div>
+<!--newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+        <div id="packageModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="packageTitle"></h2>
+                <img id="packageImage" src="" alt="Package Image">
+                <p id="packageDescription"></p>
+                <h3>Features:</h3>
+                <ul id="packageFeatures"></ul>
+                <h3>Rating:</h3>
+                <p id="packageRating"></p>
+                <h3>Price:</h3>
+                <p id="packagePrice"></p>
+    
+                <h3>Payment Options:</h3>
+                <BR>
+                    <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+            </div>
+        </div>
+            </div>
+            <div class="card">
+                <img src="https://www.tourmyindia.com/international/wp-content/uploads/2018/04/Singapore01-2-1800x532.jpg" alt="Singapore tour">
+                <h3>Singapore tour</h3>
+                <button onclick="viewDetails('Beach Getaway', 'https://via.placeholder.com/300', 'Relax on the serene beaches with luxury accommodations.', ['Luxury Resort', 'Beach Activities', 'All Meals Included'], 4.8, 1200)">View Details</button>
+            </div>
+        </div>
+<!--newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+        <div id="packageModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="packageTitle"></h2>
+                <img id="packageImage" src="" alt="Package Image">
+                <p id="packageDescription"></p>
+                <h3>Features:</h3>
+                <ul id="packageFeatures"></ul>
+                <h3>Rating:</h3>
+                <p id="packageRating"></p>
+                <h3>Price:</h3>
+                <p id="packagePrice"></p>
+    
+                <h3>Payment Options:</h3>
+                <BR>
+                    <a href="PRocedtopayment.html" class="place">PROCEED TO PAY</a>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+    
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="logo">TravelGo</div>
+            <ul>
+                <li class="tab active" data-tab="flights">Flights</li>
+                <li class="tab" data-tab="buses">Buses</li>
+                <li class="tab" data-tab="cabs">Cabs</li>
+            </ul>
+        </nav>
+    
+        <!-- Flight Booking Section -->
+        <section id="flights" class="tab-content active">
+            <h1>Book Your Flight ✈️</h1>
+            <form>
+                <label>From</label>
+                <select id="flight-from">
+                    <option>Delhi</option>
+                    <option>Mumbai</option>
+                    <option>Bangalore</option>
+                    <option>Kolkata</option>
+                </select>
+    
+                <label>To</label>
+                <select id="flight-to">
+                    <option>Chennai</option>
+                    <option>Goa</option>
+                    <option>Hyderabad</option>
+                    <option>Pune</option>
+                </select>
+    
+                <label>Departure Date</label>
+                <input type="date">
+    
+                <label>Return Date (Optional)</label>
+                <input type="date">
+                <a href="flight.html" class="place">search flights</search></a>
+            </form>
+        </section>
+    
+        <!-- Bus Booking Section -->
+        <section id="buses" class="tab-content">
+            <h1>Book Your Bus 🚌</h1>
+            <form>
+                <label>From</label>
+                <input type="text" placeholder="Enter departure city">
+    
+                <label>To</label>
+                <input type="text" placeholder="Enter destination city">
+    
+                <label>Travel Date</label>
+                <input type="date">
+    
+                <label>Bus Type</label>
+                <select>
+                    <option>AC Sleeper</option>
+                    <option>Non-AC Sleeper</option>
+                    <option>AC Seater</option>
+                    <option>Non-AC Seater</option>
+                </select>
+    
+                <a href="flight.html" class="place">search bus</search></a>
+            </form>
+        </section>
+    
+        <!-- Cab Booking Section -->
+        <section id="cabs" class="tab-content">
+            <h1>Book Your Cab 🚖</h1>
+            <form>
+                <label>Pickup Location</label>
+                <input type="text" placeholder="Enter pickup location">
+                
+                <label>Drop Location</label>
+                <input type="text" placeholder="Enter drop location">
+    
+                <label>Travel Date</label>
+                <input type="date">
+    
+                <label>Cab Type</label>
+                <select>
+                    <option>Sedan</option>
+                    <option>SUV</option>
+                    <option>Luxury</option>
+                </select>
+    
+                <a href="cabbok.html" class="place">search Cab</search></a>
+            </form>
+        </section>
+    
+    </body>
+    </html>
+    
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-container">
+                <img src="https://cdn1.matadornetwork.com/blogs/1/2021/01/Nandini-Jungle-Resort-Spa-Ubud-Bali.jpg" alt="Toran Hill Resort">
+            <img src="beach1.jpg" alt="Beach">
+            <img src="https://th.bing.com/th/id/R.94ee62a358b199c2fdfdc3afd02ce760?rik=Ft40JKjK4vH80g&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f04%2fMountain-view-HD-wallpapers-desktop.jpg&ehk=TmdcVERFYK8n7%2bCrYmZYOH9ho3dgU70hK1OnPso9ZSI%3d&risl=&pid=ImgRaw&r=0" alt="Mountain">
+            <img src="https://th.bing.com/th/id/R.3d264d9f0aecfde6419fb1b49e2412f6?rik=R%2fXBf8BwigMRkQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f6%2f6%2fe%2f1150709-download-free-forest-wallpaper-hd-2406x1504-phone.jpg&ehk=AKqiC%2fJM37mpLHsf0CuYlJFwfXtiSu6n4zV4mmwDl1U%3d&risl=&pid=ImgRaw&r=0" alt="Forest">
+            <img src="city1.jpg" alt="City">
+            <img src="https://th.bing.com/th/id/OIP.3RzoLV8zUVfU_we1LXUfPgHaEo?rs=1&pid=ImgDetMain" alt="Desert">
+            <img src="https://wallpaperaccess.com/full/2217476.jpg" alt="Temple">
+        </div>
+    </section>
+
+
+    <section class="stay-section">
+        <h2>Plan Your Stay - Choice of Your Accommodation</h2>
+        <div class="accommodation-options">
+            <div class="option">
+                <img src="https://cdn1.matadornetwork.com/blogs/1/2021/01/Nandini-Jungle-Resort-Spa-Ubud-Bali.jpg" alt="Toran Hill Resort">
+                <h3>Toran Hill Resort</h3>
+                <a href="BOOKNOW.HTML" class="place">BOOK NOW</a>
+            </div>
+            <div class="option">
+                <img src="https://th.bing.com/th/id/OIP.9enS-8YObsKQZPrZNg_q6AHaEK?rs=1&pid=ImgDetMain" alt="Luxury Hotel">
+                <h3>Luxury Hotel</h3>
+                <a href="BOOKNOW.HTML" class="place">BOOK NOW</a>
+            </div>
+            <div class="option">
+                <img src="https://ik.imagekit.io/bbhed67kj/wp-content/uploads/2022/10/Luxury-Sakleshpur-Homestay-Near-Waterfalls-3.jpg" alt="Home Stay">
+                <h3>Home Stays</h3>
+                <a href="BOOKNOW.HTML" class="place">BOOK NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBookingForm()">&times;</span>
+            <h2>Book Your Stay</h2>
+            <form id="bookingForm">
+                <label for="place">Accommodation:</label>
+                <input type="text" id="place" name="place" readonly>
+
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="checkin">Check-in Date:</label>
+                <input type="date" id="checkin" name="checkin" required>
+
+                <label for="checkout">Check-out Date:</label>
+                <input type="date" id="checkout" name="checkout" required>
+
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" name="guests" min="1" required>
+
+                <label for="payment">Payment Method:</label>
+                <select id="payment" name="payment" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+
+                <div id="card-details" style="display: none;">
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9101 1121">
+
+                    <label for="expiry">Expiry Date:</label>
+                    <input type="month" id="expiry" name="expiry">
+
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3">
+                </div>
+
+                <button type="submit">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+    
+    <section id="map">
+    <section class="location-section">
+        <h2>Our Location</h2>
+        <p class="location-details">Visit us at our tourism center to get the best guides and assistance for your journey. We are located at:</p>
+        <p class="location-details"><strong>123 Tourist Avenue, Travel City, Country</strong></p>
+        <p class="location-details">Feel free to contact us at <strong>(123) 456-7890</strong> or email us at <strong>info@tourismguide.com</strong></p>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093846!2d144.9630579153167!3d-37.81627977975195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577b6a60a64cb3b!2sFederation%20Square!5e0!3m2!1sen!2sus!4v1606371817740!5m2!1sen!2sus" allowfullscreen></iframe>
+        </div>
+    </section>
+
+        <h3></h3>
+        <div id="google-map"></div>
+    </section>
+
+    <section id="booking">
+        <h2>Book Your Tour</h2>
+        <form id="bookingForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="package">Select Package:</label>
+            <select id="package" name="package" required>
+                <option value="">-- Choose a Package --</option>
+                <option value="adventure">Adventure Tour</option>
+                <option value="cultural">Cultural Tour</option>
+                <option value="wildlife">Wildlife Safari tour</option>
+                <option value="honeymoon tour">honeymoon tour</option>
+            </select>
+
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" min="1" required>
+
+            <button type="submit">Book Now</button>
+        </form>
+        <p id="confirmationMessage"></p>
+    </section>
+        <!---yaha se review ka h-->
+        <div class="container">
+
+    <section class="reviews-section">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="reviews">
+                <div class="review">
+                    <p class="review-text">"This guide made our trip unforgettable! We saw so many hidden gems. Highly recommended!"</p>
+                    <p class="review-author">- Sarah T.</p>
+                </div>
+                <div class="review">
+                    <p class="review-text">"A fantastic experience with great tips. The recommended places were amazing!"</p>
+                    <p class="review-author">- Mark J.</p>
+                </div>
+                <div class="review">
+                    <p class="review-text">"The best guide we’ve used on our travels. Truly personalized recommendations!"</p>
+                    <p class="review-author">- Emily R.</p>
+                </div>
+                <div class="review">
+                    <p class="review-text">"The best guide we’ve used on our travels. Truly personalized recommendations!"</p>
+                    <p class="review-author">- Emily R.</p>
+                </div>
+            </div>
+            <div class="add-review">
+                <h3>Add Your Review</h3>
+                <form action="#" method="POST">
+                    <textarea name="review" placeholder="Write your review here..." rows="4"></textarea>
+                    <br>
+                    <input type="text" name="author" placeholder="Your Name" required>
+                    <br>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </section>
+<!--yha tak review-->
+    </section>
+    <section id="contact">
+        <section class="contact-section">
+                <h2>Contact Us</h2>
+                <div class="contact-info">
+                    <p><strong>Address:</strong> 123 Tourism Street, City, Country</p>
+                    <p><strong>Email:</strong> contact@tourismguide.com</p>
+                    <p><strong>Phone:</strong> +123 456 7890</p>
+                </div>
+                <form action="#" method="post" class="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+    
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <button type="submit">Submit</button>
+                    <button onclick="viewDetails('Beach Getaway', 'https://via.placeholder.com/300', 'Relax on the serene beaches with luxury accommodations.', ['Luxury Resort', 'Beach Activities', 'All Meals Included'], 4.8, 1200)">book now</button>
+                </form>
+            </div>
+        </section>
+        
+    </section>
+
+    <section id="feedback">
+        <h2>Tourism Guide Feedback</h2>
+        <form  method="post">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+            
+            <label for="rating">Rating:</label>
+            <select id="rating" name="rating" required>
+                <option value="5">Excellent</option>
+                <option value="4">Very Good</option>
+                <option value="3">Good</option>
+                <option value="2">Fair</option>
+                <option value="1">Poor</option>
+            </select>
+            <br><br>
+            
+            <label for="message">Feedback:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <br><br>
+            
+            <button type="submit">Submit Feedback</button>
+        </form>
+        </section>
+        
+    
+    <footer>
+        <p>&copy; 2025 Tourism Guide. All rights reserved.</p>
+    </footer>
+</body>
+</html>

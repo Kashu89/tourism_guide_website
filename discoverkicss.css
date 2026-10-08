@@ -1,0 +1,179 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+    text-align: center;
+}
+
+/* Button Styling */
+.discover-btn {
+    background-color: #ff5733;
+    color: white;
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.discover-btn:hover {
+    background-color: #e64a19;
+    transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Search Bar */
+#searchBar {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Places List */
+#places-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Place Card */
+.place {
+    width: 90%;
+    max-width: 250px;
+    background: #f7f7f7;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.place img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.place h3 {
+    margin: 10px 0;
+    color: #ff5733;
+}
+
+.place p {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Buttons inside each place */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.action-buttons a {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.book-now {
+    background-color: #28a745;
+}
+
+.view-menu {
+    background-color: #007bff;
+}
+
+.close-btn {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* 🔹 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .discover-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .place {
+        max-width: 100%;
+    }
+
+    #searchBar {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+.menu-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.add-to-cart {
+    padding: 5px 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.booking-form select, 
+.booking-form input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.booking-form button {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bus Booking with Payment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      margin: 0;
+      background: #f0f0f0;
+    }
+
+    .container {
+      max-width: 600px;
+      background: #fff;
+      padding: 25px;
+      margin: 30px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 1rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .booking-button {
+      background-color: #28a745;
+      color: white;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .booking-button:hover {
+      background-color: #1e7e34;
+      transform: scale(1.02);
+    }
+
+    .payment-section {
+      margin-top: 25px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .method-details {
+      display: none;
+      padding: 10px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .qr-code {
+      width: 100%;
+      max-width: 250px;
+      display: block;
+      margin: 10px auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 15px; }
+      h3 { font-size: 1.4rem; }
+      input, select { font-size: 0.95rem; }
+      .booking-button { font-size: 0.95rem; padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h3>Bus Ticket Booking</h3>
+
+  <label>Full Name:</label>
+  <input type="text" id="fullname" placeholder="Enter your full name">
+
+  <label>Email:</label>
+  <input type="email" id="email" placeholder="Enter your email">
+
+  <label>From:</label>
+  <input type="text" id="from" placeholder="Departure city">
+
+  <label>To:</label>
+  <input type="text" id="to" placeholder="Destination city">
+
+  <label>Journey Date:</label>
+  <input type="date" id="date">
+
+  <label>Bus Type:</label>
+  <select id="type">
+    <option value="">-- Select Bus Type --</option>
+    <option value="ac">AC Sleeper</option>
+    <option value="nonac">Non-AC Seater</option>
+    <option value="volvo">Volvo AC</option>
+  </select>
+
+  <!-- Payment Section -->
+  <div class="payment-section">
+    <h3>Payment</h3>
+
+    <label>Payment Method:</label>
+    <select id="paymentMethod" onchange="showPaymentOptions()">
+      <option value="">-- Select Payment Method --</option>
+      <option value="upi">UPI</option>
+      <option value="bank">Bank Transfer</option>
+      <option value="card">Credit/Debit Card</option>
+      <option value="wallet">Digital Wallet</option>
+    </select>
+
+    <!-- UPI -->
+    <div class="method-details" id="upiDetails">
+      <label>Scan UPI QR Code or enter UPI ID:</label>
+      <img class="qr-code" src="https://upload.wikimedia.org/wikipedia/commons/8/89/PhonePe_UPI_QR_code_example.jpg" alt="UPI QR Code">
+      <input type="text" placeholder="Enter UPI ID">
+    </div>
+
+    <!-- Bank -->
+   <!-- Bank -->
+<div class="method-details" id="bankDetails">
+    <label for="bankName">Bank Name:</label>
+    <input type="text" id="bankName" placeholder="Enter Bank Name">
+  
+    <label for="accountNumber">Account Number:</label>
+    <input type="text" id="accountNumber" placeholder="Enter Account Number">
+  
+    <label for="ifsc">IFSC Code:</label>
+    <input type="text" id="ifsc" placeholder="Enter IFSC Code">
+  
+    <label for="accountHolder">Account Holder Name:</label>
+    <input type="text" id="accountHolder" placeholder="Enter Account Holder Name">
+  </div>
+  
+
+    <!-- Card -->
+    <div class="method-details" id="cardDetails">
+      <input type="text" placeholder="Card Number">
+      <input type="text" placeholder="Name on Card">
+      <input type="text" placeholder="MM/YY">
+      <input type="text" placeholder="CVV">
+    </div>
+
+    <!-- Wallet -->
+    <div class="method-details" id="walletDetails">
+      <label>Select Wallet:</label>
+      <select>
+        <option value="">Choose Wallet</option>
+        <option value="phonepe">PhonePe</option>
+        <option value="gpay">Google Pay</option>
+        <option value="paytm">Paytm</option>
+      </select>
+      <img class="qr-code" src="https://upload.wikimedia.org/wikipedia/commons/8/89/PhonePe_UPI_QR_code_example.jpg" alt="Wallet QR Code">
+    </div>
+  </div>
+
+  <button class="booking-button" onclick="submitBooking()">Pay & Book</button>
+</div>
+
+<script>
+  function showPaymentOptions() {
+    const method = document.getElementById('paymentMethod').value;
+    const allDetails = ['upiDetails', 'bankDetails', 'cardDetails', 'walletDetails'];
+
+    allDetails.forEach(id => {
+      document.getElementById(id).style.display = 'none';
+    });
+
+    if (method) {
+      const selected = method + 'Details';
+      const element = document.getElementById(selected);
+      if (element) element.style.display = 'block';
+    }
+  }
+
+  function submitBooking() {
+    const name = document.getElementById('fullname').value;
+    const email = document.getElementById('email').value;
+    const from = document.getElementById('from').value;
+    const to = document.getElementById('to').value;
+    const date = document.getElementById('date').value;
+    const type = document.getElementById('type').value;
+    const payment = document.getElementById('paymentMethod').value;
+
+    if (!name || !email || !from || !to || !date || !type || !payment) {
+      alert("Please fill in all the details including payment.");
+      return;
+    }
+
+    alert(`Booking Confirmed!\nName: ${name}\nFrom: ${from}\nTo: ${to}\nDate: ${date}\nBus: ${type.toUpperCase()}\nPayment: ${payment.toUpperCase()}`);
+  }
+</script>
+
+</body>
+</html>

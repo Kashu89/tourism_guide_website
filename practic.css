@@ -1,0 +1,34 @@
+/* General Styles */
+.hidden {
+    display: none;
+}
+
+.login-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Show Modal with Sliding Effect */
+.show {
+    transform: translate(-50%, 10%);
+}
+
+/* Popup Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: red;
+}

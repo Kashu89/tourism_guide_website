@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover India - Tourism Guide</title>
+    <link rel="stylesheet" href="discoverkicss.css">  
+</head>
+<body>
+
+    <!-- Discover Now Button -->
+    <button class="discover-btn" onclick="openModal()">Discover Now</button>
+
+    <!-- Pop-up Modal -->
+    <div id="discoverModal" class="modal">
+        <div class="modal-content">
+            <h2>Explore India's Top Destinations 🇮🇳</h2>
+
+            <!-- Search Feature -->
+            <input type="text" id="searchBar" onkeyup="filterPlaces()" placeholder="Search a place...">
+
+            <div id="places-list">
+                <div class="place">
+                    <img src="beach2.jpg" alt="Goa">
+                    <h3>🏖️ Goa</h3>
+                    <p>Hotel Price: ₹5,000 per night</p>
+                    <p>Restaurant: Fisherman's Wharf</p>
+                    <div class="action-buttons">
+                        <a href="#" class="book-now">Book</a>
+                        <a href="#" class="view-menu">Menu</a>
+                    </div>
+                </div>
+
+                <div class="place">
+                    <img src="city1.jpg" alt="Jaipur">
+                    <h3>🏰 Jaipur</h3>
+                    <p>Hotel Price: ₹4,500 per night</p>
+                    <p>Restaurant: Chokhi Dhani</p>
+                    <div class="action-buttons">
+                        <a href="#" class="book-now">Book</a>
+                        <a href="#" class="view-menu">Menu</a>
+                    </div>
+                </div>
+
+                <div class="place">
+                    <img src="for2.jpg" alt="Kerala">
+                    <h3>🌿 Kerala</h3>
+                    <p>Hotel Price: ₹6,000 per night</p>
+                    <p>Restaurant: Grand Pavilion</p>
+                    <div class="action-buttons">
+                        <a href="#" class="book-now">Book</a>
+                        <a href="#" class="view-menu">Menu</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("discoverModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("discoverModal").style.display = "none";
+        }
+
+        function filterPlaces() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let places = document.getElementsByClassName("place");
+
+            for (let i = 0; i < places.length; i++) {
+                let title = places[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+                places[i].style.display = title.includes(input) ? "block" : "none";
+            }
+        }
+    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover India - Tourism Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Places Section -->
+    <div id="places-list">
+        <div class="place">
+            <img src="beach2.jpg" alt="Goa">
+            <h3>🏖️ Goa</h3>
+            <p>Hotel Price: ₹5,000 per night</p>
+            <p>Restaurant: Fisherman's Wharf</p>
+            <div class="action-buttons">
+                <button class="book-now" onclick="openBooking('Goa', 5000)">Book</button>
+                <button class="view-menu" onclick="openMenu('Goa')">Menu</button>
+            </div>
+        </div>
+
+        <div class="place">
+            <img src="city1.jpg" alt="Jaipur">
+            <h3>🏰 Jaipur</h3>
+            <p>Hotel Price: ₹4,500 per night</p>
+            <p>Restaurant: Chokhi Dhani</p>
+            <div class="action-buttons">
+                <button class="book-now" onclick="openBooking('Jaipur', 4500)">Book</button>
+                <button class="view-menu" onclick="openMenu('Jaipur')">Menu</button>
+            </div>
+        </div>
+
+        <div class="place">
+            <img src="for2.jpg" alt="Kerala">
+            <h3>🌿 Kerala</h3>
+            <p>Hotel Price: ₹6,000 per night</p>
+            <p>Restaurant: Grand Pavilion</p>
+            <div class="action-buttons">
+                <button class="book-now" onclick="openBooking('Kerala', 6000)">Book</button>
+                <button class="view-menu" onclick="openMenu('Kerala')">Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Modal -->
+    <div id="menuModal" class="modal">
+        <div class="modal-content">
+            <h2 id="menuTitle"></h2>
+            <div id="menuItems"></div>
+            <button class="close-btn" onclick="closeMenu()">Close</button>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <h2 id="bookingTitle"></h2>
+            <form class="booking-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="date" id="checkInDate" required>
+                <input type="date" id="checkOutDate" required>
+                <select id="guestCount">
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                </select>
+                <p>Total Price: ₹<span id="totalPrice">0</span></p>
+                <button type="submit">Confirm Booking</button>
+            </form>
+            <button class="close-btn" onclick="closeBooking()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const menus = {
+            "Goa": [
+                { name: "Seafood Platter", price: 800, image: "seafood.jpg", rating: "⭐ 4.5" },
+                { name: "Goan Prawn Curry", price: 600, image: "prawn.jpg", rating: "⭐ 4.8" },
+            ],
+            "Jaipur": [
+                { name: "Dal Baati Churma", price: 300, image: "dal.jpg", rating: "⭐ 4.7" },
+                { name: "Laal Maas", price: 550, image: "maas.jpg", rating: "⭐ 4.6" },
+            ],
+            "Kerala": [
+                { name: "Kerala Sadya", price: 500, image: "sadya.jpg", rating: "⭐ 4.9" },
+                { name: "Fish Molee", price: 550, image: "fish.jpg", rating: "⭐ 4.8" },
+            ],
+        };
+
+        function openMenu(place) {
+            document.getElementById("menuTitle").innerText = "Menu for " + place;
+            let menuList = document.getElementById("menuItems");
+            menuList.innerHTML = "";
+            menus[place].forEach(item => {
+                let div = document.createElement("div");
+                div.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="menu-img">
+                    <p>${item.name} - ₹${item.price} (${item.rating})</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                `;
+                menuList.appendChild(div);
+            });
+            document.getElementById("menuModal").style.display = "flex";
+        }
+
+        function closeMenu() {
+            document.getElementById("menuModal").style.display = "none";
+        }
+
+        function openBooking(place, pricePerNight) {
+            document.getElementById("bookingTitle").innerText = "Book a Stay in " + place;
+            document.getElementById("totalPrice").innerText = pricePerNight;
+            document.getElementById("bookingModal").style.display = "flex";
+            
+            document.getElementById("checkOutDate").addEventListener("change", function () {
+                let checkIn = new Date(document.getElementById("checkInDate").value);
+                let checkOut = new Date(document.getElementById("checkOutDate").value);
+                let nights = (checkOut - checkIn) / (1000 * 3600 * 24);
+                if (nights > 0) {
+                    let total = nights * pricePerNight * document.getElementById("guestCount").value;
+                    document.getElementById("totalPrice").innerText = total;
+                }
+            });
+        }
+
+        function closeBooking() {
+            document.getElementById("bookingModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
+
+</body>
+</html>

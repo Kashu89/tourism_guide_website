@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Guide</title>
+    <link rel="stylesheet" href="practic.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <!-- Main Content of Website -->
+    <div class="content">
+        <h1>Welcome to the Tourism Guide System</h1>
+        <p>Discover amazing places with us.</p>
+    </div>
+
+    <!-- Login/Register Popup -->
+    <div id="loginModal" class="login-container hidden">
+        <div class="popup">
+            <span class="close-btn">&times;</span>
+            <div class="account-toggle">
+                <button class="active">Personal Account</button>
+                <button>MyBiz Account</button>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <div class="mobile-input">
+                    <select>
+                        <option>+91</option>
+                        <option>+1</option>
+                        <option>+44</option>
+                    </select>
+                    <input type="tel" placeholder="Enter Mobile Number">
+                </div>
+            </div>
+
+            <button class="continue-btn" disabled>Continue</button>
+
+            <div class="or-section">
+                <span>Or Login/Signup With</span>
+            </div>
+
+            <div class="social-login">
+                <button class="google-btn">G</button>
+                <button class="email-btn">@</button>
+            </div>
+
+            <p class="terms">
+                By proceeding, you agree to our 
+                <a href="#">Privacy Policy</a>, 
+                <a href="#">User Agreement</a>, and 
+                <a href="#">T&Cs</a>.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

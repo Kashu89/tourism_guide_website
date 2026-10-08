@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Booking UI</title>
+  <link rel="stylesheet" href="sty.css">
+</head>
+<body>
+  <div class="container">
+    <div class="trip-type">
+      <label><input type="radio" name="trip" checked> One Way</label>
+      <label><input type="radio" name="trip"> Round Trip</label>
+      <label><input type="radio" name="trip"> Multi City</label>
+    </div>
+
+    <div class="search-section">
+      <div class="location">
+        <div>
+          <h2>Delhi</h2>
+          <p>DEL, Delhi Airport India</p>
+        </div>
+        <div class="swap">⇄</div>
+        <div>
+          <h2>Bengaluru</h2>
+          <p>BLR, Bengaluru Intl Airport</p>
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="detail-box">
+          <label>Departure</label>
+          <div class="date">10 Apr'25 <br><span>Thursday</span></div>
+        </div>
+        <div class="detail-box">
+          <label>Return</label>
+          <div class="note">Tap to add a return date for discounts</div>
+        </div>
+        <div class="detail-box">
+          <label>Travellers & Class</label>
+          <div class="travellers">1 Traveller <br><span>Economy/Premium</span></div>
+        </div>
+      </div>
+
+      <div class="special-fares">
+        <h4>Select a special fare</h4>
+        <div class="fares">
+          <button class="extra">EXTRA SAVINGS</button>
+          <label><input type="radio" name="fare" checked> Regular</label>
+          <label><input type="radio" name="fare"> Student</label>
+          <label><input type="radio" name="fare"> Senior Citizen</label>
+          <label><input type="radio" name="fare"> Armed Forces</label>
+          <label><input type="radio" name="fare"> Doctor and Nurses</label>
+        </div>
+      </div>
+
+      <div class="search-btn">
+        <button onclick="searchFlights()">SEARCH</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  
+  .trip-type {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .trip-type input {
+    margin-right: 5px;
+  }
+  
+  .search-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .location {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .location h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .swap {
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .details {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .detail-box {
+    flex: 1;
+    background: #f0f7ff;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 200px;
+  }
+  
+  .detail-box label {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .detail-box .date, .travellers {
+    font-size: 18px;
+    margin-top: 8px;
+  }
+  
+  .detail-box span {
+    font-size: 12px;
+    color: gray;
+  }
+  
+  .note {
+    font-size: 13px;
+    color: #999;
+    margin-top: 10px;
+  }
+  
+  .special-fares {
+    margin-top: 10px;
+  }
+  
+  .special-fares h4 {
+    margin-bottom: 10px;
+  }
+  
+  .fares {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .fares label {
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .extra {
+    background: green;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .search-btn {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .search-btn button {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(to right, #007aff, #0052d4);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  

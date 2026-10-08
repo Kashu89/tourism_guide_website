@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beach Images</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    h2 {
+        color: #333;
+    }
+    .image-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+    }
+    .image-gallery img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+    .image-gallery img:hover {
+        transform: scale(1.05);
+    }
+    a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    a:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+    <h2>Beautiful HOTELS </h2>
+    <div class="image-gallery">
+        <img src="https://www.tripsavvy.com/thmb/TM79MFGCpdqvpSV5xxiq45wPnpI=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-148636425-5a1a724f7d4be800193fd5f3.jpg" alt="HOTEL1">
+        <img src="https://www.travelplusstyle.com/wp-content/gallery/rambagh-palace-jaipur/hi_h4ej0_67917590_rambagh_palace_-_exterior_4.jpg" alt="HOTEL2">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/86/84/7d/pool.jpg?w=900&h=-1&s=1" alt="HOTEL3">
+        <img src="https://www.lasociedadgeografica.com/blog/uploads/2017/06/the-leela-goa.jpg" alt="HOTEL4">
+    </div>
+    <a href="html1.html">Back to Home</a>  <!-- Button to go back -->
+</body>
+</html>

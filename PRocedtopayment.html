@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Payment Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      margin: 0;
+      background: #f0f0f0;
+    }
+
+    .container {
+      max-width: 500px;
+      background: #fff;
+      padding: 25px;
+      margin: 30px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 1rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .payment-button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .payment-button:hover {
+      background-color: #0056b3;
+      transform: scale(1.02);
+    }
+
+    .payment-form {
+      display: none;
+      margin-top: 20px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .method-details {
+      display: none;
+      padding: 10px;
+      background: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .qr-code {
+      width: 100%;
+      max-width: 250px;
+      display: block;
+      margin: 10px auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+      h3 { font-size: 1.3rem; }
+      input, select { font-size: 0.95rem; }
+      .payment-button { font-size: 0.95rem; padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h3>Payment</h3>
+  
+  <!-- Main Button -->
+  <button class="payment-button" onclick="showPaymentForm()">Proceed to Payment</button>
+
+  <!-- Hidden Form -->
+  <div class="payment-form" id="paymentForm">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" placeholder="Enter your full name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" placeholder="Enter amount">
+
+    <label for="method">Payment Method:</label>
+    <select id="method" onchange="showMethodDetails()">
+      <option value="">-- Select Payment Method --</option>
+      <option value="upi">UPI</option>
+      <option value="bank">Bank Transfer</option>
+      <option value="card">Credit/Debit Card</option>
+      <option value="wallet">Digital Wallet</option>
+    </select>
+
+    <!-- UPI Details -->
+    <div class="method-details" id="upiDetails">
+      <label>Scan UPI QR Code or enter UPI ID:</label>
+      <img class="qr-code" src="https://upload.wikimedia.org/wikipedia/commons/8/89/PhonePe_UPI_QR_code_example.jpg" alt="UPI QR Code">
+      <input type="text" placeholder="Enter UPI ID">
+    </div>
+
+    <!-- Bank Transfer Details -->
+    <div class="method-details" id="bankDetails">
+        <label><strong>Bank Name:</strong></label>
+        <input type="text" placeholder="Enter Bank Name" value="State Bank of India">
+      
+        <label><strong>Account Number:</strong></label>
+        <input type="text" placeholder="Enter Account Number" value="123456789012">
+      
+        <label><strong>IFSC Code:</strong></label>
+        <input type="text" placeholder="Enter IFSC Code" value="SBIN0001234">
+      
+        <p><strong>Account Holder:</strong> Tourism Guide Pvt Ltd</p>
+      </div>
+      
+
+    <!-- Card Details -->
+    <div class="method-details" id="cardDetails">
+      <input type="text" placeholder="Card Number">
+      <input type="text" placeholder="Name on Card">
+      <input type="text" placeholder="MM/YY">
+      <input type="text" placeholder="CVV">
+    </div>
+
+    <!-- Wallet Details -->
+    <div class="method-details" id="walletDetails">
+      <label>Select Wallet:</label>
+      <select>
+        <option value="">Choose Wallet</option>
+        <option value="phonepe">PhonePe</option>
+        <option value="gpay">Google Pay</option>
+        <option value="paytm">Paytm</option>
+      </select>
+      <img class="qr-code" src="https://upload.wikimedia.org/wikipedia/commons/8/89/PhonePe_UPI_QR_code_example.jpg" alt="Wallet QR Code">
+    </div>
+
+    <button class="payment-button" style="margin-top: 10px;" onclick="makePayment()">Pay Now</button>
+  </div>
+</div>
+
+<script>
+  function showPaymentForm() {
+    document.getElementById('paymentForm').style.display = 'block';
+  }
+
+  function showMethodDetails() {
+    const method = document.getElementById('method').value;
+    const details = ['upiDetails', 'bankDetails', 'cardDetails', 'walletDetails'];
+
+    details.forEach(id => {
+      document.getElementById(id).style.display = 'none';
+    });
+
+    if (method === 'upi') {
+      document.getElementById('upiDetails').style.display = 'block';
+    } else if (method === 'bank') {
+      document.getElementById('bankDetails').style.display = 'block';
+    } else if (method === 'card') {
+      document.getElementById('cardDetails').style.display = 'block';
+    } else if (method === 'wallet') {
+      document.getElementById('walletDetails').style.display = 'block';
+    }
+  }
+
+  function makePayment() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const amount = document.getElementById('amount').value;
+    const method = document.getElementById('method').value;
+
+    if (!name || !email || !amount || !method) {
+      alert("Please fill in all the details.");
+      return;
+    }
+
+    alert(`Payment Details:\nName: ${name}\nEmail: ${email}\nAmount: ₹${amount}\nMethod: ${method.toUpperCase()}`);
+  }
+</script>
+
+</body>
+</html>
